@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react';
+import React, { useRef, Suspense, useMemo } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Sphere, Stars, OrbitControls, Html } from '@react-three/drei';
 import * as THREE from 'three';
@@ -32,64 +32,96 @@ const GlobeMesh = () => {
     const meshRef = useRef();
     const cloudsRef = useRef();
 
-    // Stable high-res textures
+    // High-resolution premium textures
     const textures = useLoader(THREE.TextureLoader, [
         'https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/earth_atmos_2048.jpg',
         'https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/earth_normal_2048.jpg',
         'https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/earth_specular_2048.jpg',
         'https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/earth_clouds_1024.png',
+        'https://threejs.org/examples/textures/planets/earth_lights_2048.png' // Night Lights
     ]);
 
-    const [colorMap, normalMap, specularMap, cloudsMap] = textures;
+    const [colorMap, normalMap, specularMap, cloudsMap, nightLightsMap] = textures;
 
     useFrame((state, delta) => {
         if (meshRef.current) {
-            meshRef.current.rotation.y += delta * 0.07;
+            meshRef.current.rotation.y += delta * 0.05;
         }
         if (cloudsRef.current) {
-            cloudsRef.current.rotation.y += delta * 0.09;
-            cloudsRef.current.rotation.x += delta * 0.01;
+            cloudsRef.current.rotation.y += delta * 0.06;
         }
     });
 
+    // Custom Atmosphere Shader for the 'pop' halo effect
+    const atmosphereMaterial = useMemo(() => new THREE.ShaderMaterial({
+        transparent: true,
+        side: THREE.BackSide,
+        uniforms: {
+            glowColor: { value: new THREE.Color('#00aaff') },
+            viewVector: { value: new THREE.Vector3(0, 0, 1) }
+        },
+        vertexShader: `
+            varying float intensity;
+            void main() {
+                vec3 vNormal = normalize( normalMatrix * normal );
+                vec3 vNormel = normalize( normalMatrix * vec3(0.0, 0.0, 1.0) );
+                intensity = pow( 0.7 - dot(vNormal, vNormel), 4.2 );
+                gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+            }
+        `,
+        fragmentShader: `
+            uniform vec3 glowColor;
+            varying float intensity;
+            void main() {
+                vec3 glow = glowColor * intensity;
+                gl_FragColor = vec4( glow, intensity );
+            }
+        `
+    }), []);
+
     return (
         <group>
-            {/* High-Resolution Earth */}
+            {/* High-Resolution Cinematic Earth */}
             <Sphere args={[2, 128, 128]} ref={meshRef}>
-                <meshPhongMaterial
+                <meshStandardMaterial
                     map={colorMap}
                     normalMap={normalMap}
-                    normalScale={new THREE.Vector2(2.5, 2.5)}
-                    specularMap={specularMap}
-                    specular={new THREE.Color('#AAAAAA')}
-                    shininess={35}
+                    normalScale={new THREE.Vector2(1.8, 1.8)}
+                    roughnessMap={specularMap}
+                    roughness={0.6}
+                    metalness={0.2}
+                    emissiveMap={nightLightsMap}
+                    emissive={new THREE.Color('#FFECB3')}
+                    emissiveIntensity={2.5}
                 />
             </Sphere>
 
-            {/* Cloud Atmosphere */}
-            <Sphere args={[2.04, 128, 128]} ref={cloudsRef}>
+            {/* Cloud Layer - Improved Depth */}
+            <mesh ref={cloudsRef}>
+                <sphereGeometry args={[2.04, 128, 128]} />
                 <meshPhongMaterial
                     map={cloudsMap}
                     transparent={true}
-                    opacity={0.55}
+                    opacity={0.35}
                     depthWrite={false}
-                    side={THREE.DoubleSide}
                     color="#ffffff"
-                />
-            </Sphere>
-
-            {/* Blue Atmospheric Glow */}
-            <mesh scale={[1.22, 1.22, 1.22]}>
-                <sphereGeometry args={[2, 128, 128]} />
-                <meshBasicMaterial
-                    color="#0077ff"
-                    transparent
-                    opacity={0.18}
-                    side={THREE.BackSide}
+                    shininess={0}
                 />
             </mesh>
 
-            {/* Space Traffic */}
+            {/* Custom Fresnel Atmosphere Glow */}
+            <mesh scale={[1.18, 1.18, 1.18]}>
+                <sphereGeometry args={[2.08, 128, 128]} />
+                <primitive object={atmosphereMaterial} attach="material" />
+            </mesh>
+
+            {/* Inner Glow scattering */}
+            <mesh scale={[1.01, 1.01, 1.01]}>
+                <sphereGeometry args={[2, 64, 64]} />
+                <meshBasicMaterial color="#0088ff" transparent opacity={0.15} side={THREE.BackSide} />
+            </mesh>
+
+            {/* Strategic Space Traffic */}
             <OrbitingPlane radius={3.2} speed={0.5} color="#d4af37" startPos={0} />
             <OrbitingPlane radius={3.8} speed={0.4} color="#00ffff" startPos={Math.PI} />
         </group>
@@ -100,25 +132,29 @@ const Globe3D = () => {
     return (
         <div className="absolute inset-0 z-0">
             <Canvas
-                camera={{ position: [0, 0, 7], fov: 42 }}
+                shadows
+                camera={{ position: [0, 0, 7.5], fov: 40 }}
                 gl={{
                     antialias: true,
                     alpha: true,
                     logarithmicDepthBuffer: true,
                     powerPreference: "high-performance"
                 }}
-                onCreated={({ gl }) => {
-                    gl.toneMapping = THREE.ACESFilmicToneMapping;
-                    gl.outputColorSpace = THREE.SRGBColorSpace;
-                }}
             >
-                {/* Cinema Lighting Suite */}
-                <ambientLight intensity={2.5} />
-                <pointLight position={[15, 15, 15]} intensity={7} color="#ffffff" />
-                <pointLight position={[-15, -15, -10]} intensity={4.5} color="#4488ff" />
-                <directionalLight position={[0, 10, 5]} intensity={2.2} />
+                {/* Cinema Lighting Suite - Sharp High Contrast & Brighter View */}
+                <ambientLight intensity={0.4} />
+                <directionalLight
+                    position={[10, 8, 5]}
+                    intensity={5}
+                    castShadow
+                />
+                <pointLight
+                    position={[-15, -10, -5]}
+                    intensity={3.2}
+                    color="#00aaff"
+                />
 
-                <Stars radius={200} depth={80} count={10000} factor={8} saturation={0.8} fade speed={2.5} />
+                <Stars radius={250} depth={100} count={12000} factor={10} fade speed={1.5} />
 
                 <Suspense fallback={
                     <Html center>
@@ -129,7 +165,7 @@ const Globe3D = () => {
                                 <GlobeIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-accent" size={32} />
                             </div>
                             <div className="text-center">
-                                <p className="text-accent/60 text-[10px] font-black uppercase tracking-[0.5em] animate-pulse">Syncing Galaxy Core...</p>
+                                <p className="text-accent/60 text-[10px] font-black uppercase tracking-[0.5em] animate-pulse">Initializing Global Node...</p>
                             </div>
                         </div>
                     </Html>
@@ -141,9 +177,9 @@ const Globe3D = () => {
                     enablePan={false}
                     enableZoom={false}
                     autoRotate={true}
-                    autoRotateSpeed={0.7}
+                    autoRotateSpeed={0.5}
                     enableDamping={true}
-                    dampingFactor={0.07}
+                    dampingFactor={0.06}
                 />
             </Canvas>
         </div>

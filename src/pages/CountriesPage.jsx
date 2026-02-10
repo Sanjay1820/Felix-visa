@@ -13,113 +13,88 @@ gsap.registerPlugin(ScrollTrigger);
 
 const countries = [
     {
-        id: 'ca', name: 'Canada', x: '22%', y: '35%',
-        description: 'Elite destination for Global Mobility. Renowned for fast-track permanent residency, world-class education systems, and high quality of life.',
+        id: 'ca', name: 'Canada', x: '18%', y: '32%', labelPos: 'top',
+        description: 'Elite Tier-1 destination for global workforce mobility. Strategically engineered for high-velocity Permanent Residency pipelines and world-class academic integration through the Express Entry and Provincial Nominee frameworks.',
         image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2670&auto=format&fit=crop',
         success: '99.2%', sessions: '12,500+',
         tags: ['Express Entry', 'Study Permit', 'Passport Power'],
         stats: 'Number #1 for PR',
         visaTypes: ['Express Entry', 'Provincial Nominee', 'Federal Skilled Worker'],
-        processingTime: '6 - 12 Months',
+        processingTime: '6-12 Mo',
         keyBenefits: ['Free Healthcare', 'Diverse Environment', 'Economic Stability'],
         language: 'English, French',
         climate: 'Seasonal / Temperate'
     },
     {
-        id: 'us', name: 'USA', x: '20%', y: '48%',
-        description: 'The pinnacle of career growth. We specialize in H1-B, EB-5, and student visas for top-tier American universities and tech hubs.',
+        id: 'us', name: 'USA', x: '16%', y: '58%', labelPos: 'bottom',
+        description: 'The global epicenter of professional evolution. specialized architectural support for H1-B specialty occupations, EB-5 investor portfolios, and F-1 academic-to-career transitions across top-tier Silicon Valley and financial corridors.',
         image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2699&auto=format&fit=crop',
         success: '96.5%', sessions: '18,200+',
         tags: ['H1-B Specialist', 'Silicon Valley', 'Ivy League'],
         stats: '50k+ Visas',
         visaTypes: ['H1-B (Work)', 'L-1 (Transfer)', 'F-1 (Student)', 'EB-5 (Investor)'],
-        processingTime: '12 - 18 Months',
+        processingTime: '12-18 Mo',
         keyBenefits: ['Tech Innovation', 'Global Network', 'Academic Excellence'],
         language: 'English',
         climate: 'Varied (Tropical to Arctic)'
     },
     {
-        id: 'uk', name: 'UK', x: '47%', y: '38%',
-        description: 'Heritage meets opportunity. Expert guidance for Skilled Worker, Innovator Founder, and Graduate Route visa streams.',
+        id: 'uk', name: 'UK', x: '46%', y: '28%', labelPos: 'top',
+        description: 'Sophisticated fusion of heritage and high-tech opportunity. Expert intelligence for Skilled Worker and Graduate Route streams, providing a direct gateway to the London financial sector and prestigious Russell Group ecosystems.',
         image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
         success: '98.1%', sessions: '8,400+',
         tags: ['Skilled Worker', 'Graduate Route', 'Tier 2'],
         stats: '2 Year Post-Study Work',
         visaTypes: ['Skilled Worker', 'Health & Care', 'Student Visa', 'Scale-up'],
-        processingTime: '3 - 8 Weeks',
+        processingTime: '3-8 Wk',
         keyBenefits: ['Rich Heritage', 'Business Hub', 'World-Class Education'],
         language: 'English',
         climate: 'Temperate Maritime'
     },
     {
-        id: 'de', name: 'Germany', x: '51%', y: '42%',
-        description: 'Europe\'s industrial powerhouse. specialized support for the Opportunity Card (Chancenkarte) and IT Specialist visas.',
+        id: 'de', name: 'Germany', x: '50%', y: '38%', labelPos: 'bottom',
+        description: 'Europe\'s industrial core and gateway to the EU market. specialized mission support for the Opportunity Card (Chancenkarte), Blue Card residency, and IT Specialist visas within the Schengen zone infrastructure.',
         image: 'https://images.unsplash.com/photo-1554072675-66db59dba46f?q=80&w=2670&auto=format&fit=crop',
         success: '97.4%', sessions: '5,100+',
         tags: ['Blue Card', 'Job Seeker', 'EU Talent'],
         stats: '26 Countries Access',
         visaTypes: ['Blue Card (EU)', 'Skilled Worker', 'Job Seeker', 'Vocational'],
-        processingTime: '4 - 12 Weeks',
+        processingTime: '4-12 Wk',
         keyBenefits: ['Industrial Giant', 'EU Mobility', 'Vibrant Culture'],
         language: 'German',
         climate: 'Moderate Continental'
     },
     {
-        id: 'ae', name: 'UAE', x: '60%', y: '58%',
-        description: 'The future of business residency. Premier Golden Visa processing for investors, entrepreneurs, and exceptional talents.',
+        id: 'ae', name: 'UAE', x: '63%', y: '52%', labelPos: 'top',
+        description: 'The premier futuristic hub for tax-optimized global business. specialized processing for the 10-year Golden Visa, Green residency for freelancers, and high-impact investor corridors in the heart of global strategic trade.',
         image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=2670&auto=format&fit=crop',
         success: '99.8%', sessions: '25,500+',
         tags: ['Golden Visa', 'Tax Haven', 'Luxury PR'],
         stats: 'Tax Free Income',
         visaTypes: ['Golden Visa', 'Green Visa', 'Remote Work', 'Investor'],
-        processingTime: '2 - 4 Weeks',
+        processingTime: '2-4 Wk',
         keyBenefits: ['Tax-Free Life', 'Ultra Modern', 'Strategic Location'],
         language: 'Arabic, English',
         climate: 'Desert / Sunny'
     },
     {
-        id: 'au', name: 'Australia', x: '85%', y: '82%',
-        description: 'Incredible landscapes and economic stability. Your portal to Subclass 189/190 General Skilled Migration and Student pathways.',
+        id: 'au', x: '88%', y: '82%', name: 'Australia', labelPos: 'top',
+        description: 'State-of-the-art stability and premium living standards. providing advanced entry via Subclass 189/190 General Skilled Migration and regional development pathways for the world\'s most ambitious lifestyle seekers.',
         image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2670&auto=format&fit=crop',
         success: '98.7%', sessions: '9,200+',
         tags: ['PR Pathway', 'Regional Visa', 'Work Holiday'],
         stats: 'High Minimum Wage',
         visaTypes: ['Subclass 189/190', 'Student (500)', 'Work (482)', 'Partner'],
-        processingTime: '8 - 14 Months',
+        processingTime: '8-14 Mo',
         keyBenefits: ['Outdoor Living', 'High Wages', 'Stable Economy'],
         language: 'English',
         climate: 'Subtropical / Arid'
-    },
-    {
-        id: 'nz', name: 'New Zealand', x: '92%', y: '88%',
-        description: 'Secure, green, and growing. Fast-track residency for Green List roles in healthcare, construction, and technology.',
-        image: 'https://images.unsplash.com/photo-1507699622177-f888f145af0f?q=80&w=2574&auto=format&fit=crop',
-        success: '97.9%', sessions: '4,800+',
-        tags: ['Green List', 'Accredited employer', 'Family PR'],
-        stats: 'Safe & Peaceful',
-        visaTypes: ['Green List PR', 'Work to Residence', 'Entrepreneur', 'Student'],
-        processingTime: '4 - 10 Months',
-        keyBenefits: ['Nature & Peace', 'Work-Life Balance', 'Safety Rank #1'],
-        language: 'English, Māori',
-        climate: 'Temperate'
-    },
-    {
-        id: 'pl', name: 'Poland', x: '53%', y: '38%',
-        description: 'Strategic EU Gateway. Expert assistance for Type D Work Visas and Temporary Residence Cards (TRC) in the Schengen area.',
-        image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2670&auto=format&fit=crop',
-        success: '95.6%', sessions: '6,300+',
-        tags: ['Work Visa', 'Schengen TRC', 'EU Bridge'],
-        stats: 'EU Marketplace',
-        visaTypes: ['Work Visa Type D', 'TRC (Residence)', 'Blue Card', 'Business'],
-        processingTime: '4 - 8 Weeks',
-        keyBenefits: ['EU Gateway', 'Affordable EU Life', 'Thriving Economy'],
-        language: 'Polish',
-        climate: 'Continental'
     }
 ];
 
 const CountriesPage = () => {
     const [selectedCountry, setSelectedCountry] = useState(null);
+    const [hoveredCountry, setHoveredCountry] = useState(null);
     const headerRef = useRef(null);
     const mapRef = useRef(null);
     const listRef = useRef(null);
@@ -176,6 +151,16 @@ const CountriesPage = () => {
         navigate('/contact', { state: { targetCountry: country.name } });
     };
 
+    const getLabelStyles = (pos) => {
+        switch (pos) {
+            case 'left': return 'right-full mr-8 top-1/2 -translate-y-1/2';
+            case 'right': return 'left-full ml-8 top-1/2 -translate-y-1/2';
+            case 'top': return 'bottom-full mb-6 left-1/2 -translate-x-1/2';
+            case 'bottom': return 'top-full mt-6 left-1/2 -translate-x-1/2';
+            default: return 'top-full mt-6 left-1/2 -translate-x-1/2';
+        }
+    }
+
     return (
         <div className="bg-[#010611] min-h-screen pt-24 overflow-x-hidden">
             {/* Mission Control Header */}
@@ -185,99 +170,147 @@ const CountriesPage = () => {
                         <Sparkles className="text-accent" size={14} />
                         <span className="text-accent text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em]">Command Center: Global Access</span>
                     </div>
-                    <h1 className="text-4xl md:text-8xl lg:text-9xl font-heading font-black text-white mb-10 leading-[0.85] tracking-tighter uppercase">
+                    <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-heading font-black text-white mb-8 leading-[0.9] tracking-tighter uppercase">
                         Serving Clients <br className="hidden md:block" />
                         <span className="text-gradient">Worldwide</span>
                     </h1>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-xl font-light leading-relaxed mb-16 opacity-80">
-                        Strategic visa and immigration architecture for the world's most high-performance global hubs.
+                    <p className="text-gray-400 max-w-4xl mx-auto text-base md:text-2xl font-light leading-relaxed mb-6 opacity-80 px-4">
+                        Providing elite mission-critical visa architecture and bespoke immigration intelligence for the world's <span className="text-white font-medium">most high-performance global hubs</span>. We streamline complex bureaucratic corridors, bridging the gap between corporate ambition and seamless global residency with unmatched precision and speed.
                     </p>
                 </div>
 
                 {/* Industrial HUD Map Interface */}
-                <div ref={mapRef} className="interactive-map-container relative w-full max-w-7xl mx-auto h-[450px] md:h-[750px] mb-32 md:mb-48 group z-10 px-4 md:px-0">
+                <div ref={mapRef} className="interactive-map-container relative w-full max-w-7xl mx-auto h-[450px] md:h-[750px] mb-8 md:mb-12 group z-10 px-4 md:px-0">
                     <div className="absolute inset-0 bg-[#020817] rounded-[2.5rem] md:rounded-[4.5rem] overflow-hidden shadow-[0_0_150px_rgba(0,0,0,0.8)] border border-white/5">
                         <div className="absolute inset-0" style={{
-                            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)',
-                            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 100%)'
+                            maskImage: 'radial-gradient(ellipse at center, black 75%, transparent 100%)',
+                            WebkitMaskImage: 'radial-gradient(ellipse at center, black 75%, transparent 100%)'
                         }}>
                             <img
                                 src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop"
                                 alt="World Map Overlay"
-                                className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen transition-transform duration-[60s] ease-linear transform scale-110"
+                                className="absolute inset-0 w-full h-full object-cover object-top opacity-60 contrast-125 brightness-110 mix-blend-screen transition-transform duration-[60s] ease-linear transform scale-125 -translate-y-32"
                             />
                         </div>
-                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-[0.05]"></div>
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-accent/5 blur-[200px] rounded-full pointer-events-none"></div>
-                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#010611] to-transparent"></div>
+
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-[0.08]"></div>
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-accent/20 blur-[150px] rounded-full pointer-events-none opacity-40"></div>
+                        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#010611] via-[#010611]/60 to-transparent"></div>
                     </div>
 
-                    {/* HUD Pointers & Logic */}
-                    <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none">
-                        {countries.map((country, index) => (
-                            <div
-                                key={index}
-                                className="map-pin absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group/pin pointer-events-auto"
-                                style={{ left: country.x, top: country.y }}
-                                onClick={() => setSelectedCountry(country)}
-                            >
-                                <div className="relative flex flex-col items-center">
-                                    <div className="relative flex flex-col items-center group/marker">
-                                        <div className="absolute w-12 h-12 md:w-24 md:h-24 bg-accent/10 rounded-full blur-2xl animate-pulse"></div>
-                                        <div className="w-2.5 h-2.5 md:w-4 md:h-4 bg-accent rounded-full border-2 border-white shadow-[0_0_30px_#d4af37] relative z-20 transition-all duration-500 group-hover/pin:scale-150"></div>
-                                        <div className="hud-line w-[1px] h-12 md:h-24 bg-gradient-to-t from-accent/80 via-accent/20 to-transparent group-hover/pin:h-32 transition-all duration-700 origin-bottom"></div>
-                                        <div className="mt-2 md:mt-3 text-center">
-                                            <div className="px-4 md:px-8 py-2 md:py-3 bg-[#0b1b36]/95 backdrop-blur-3xl border border-white/10 rounded-xl md:rounded-full transition-all duration-500 group-hover/pin:bg-accent group-hover/pin:border-white shadow-[0_15px_40px_rgba(0,0,0,0.5)] flex items-center gap-3">
-                                                <div className="w-2 h-2 rounded-full bg-accent group-hover/pin:bg-primary animate-pulse"></div>
-                                                <span className="text-[9px] md:text-[12px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-white group-hover/pin:text-primary whitespace-nowrap">
+                    {/* HUD Grid Overlay */}
+                    <div className="absolute inset-0 z-10 opacity-30 pointer-events-none">
+                        <div className="w-full h-full" style={{
+                            backgroundImage: `linear-gradient(to right, rgba(212,175,55,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(212,175,55,0.08) 1px, transparent 1px)`,
+                            backgroundSize: '50px 50px'
+                        }}></div>
+                    </div>
+
+                    {/* Country Markers Grid - Set to Previous Lower Positions as Requested */}
+                    <div className="absolute inset-0 z-20 overflow-hidden">
+                        {countries.map((country) => {
+                            // Reverting to lower-sector coordinates while image remains object-top
+                            const coords = {
+                                ca: { x: '25%', y: '30%' },
+                                us: { x: '22%', y: '55%' },
+                                uk: { x: '49%', y: '28%' },
+                                de: { x: '52%', y: '40%' },
+                                ae: { x: '63%', y: '52%' },
+                                au: { x: '82%', y: '75%' }
+                            }[country.id] || { x: country.x, y: country.y };
+
+                            return (
+                                <div
+                                    key={country.id}
+                                    className="absolute group/pin cursor-pointer transition-all duration-300 pointer-events-auto"
+                                    style={{
+                                        left: coords.x,
+                                        top: coords.y,
+                                        transform: 'translate(-50%, -50%)',
+                                        zIndex: hoveredCountry?.id === country.id ? 100 : 20
+                                    }}
+                                    onMouseEnter={() => setHoveredCountry(country)}
+                                    onMouseLeave={() => setHoveredCountry(null)}
+                                    onClick={() => setSelectedCountry(country)}
+                                >
+                                    <div className="relative flex items-center justify-center">
+                                        <div className="w-3 h-3 md:w-5 md:h-5 bg-accent rounded-full border-2 border-white shadow-[0_0_30px_rgba(212,175,55,1)] relative z-20 transition-all duration-500 group-hover/pin:scale-125 group-hover/pin:bg-white group-hover/pin:border-accent"></div>
+                                        <div className="absolute w-12 h-12 bg-accent/20 rounded-full animate-ping opacity-0 group-hover/pin:opacity-100 duration-1000"></div>
+
+                                        <div className={`absolute ${country.labelPos === 'bottom' ? 'top-1/2' : 'bottom-1/2'} w-[1px] h-10 md:h-16 bg-gradient-to-${country.labelPos === 'bottom' ? 'b' : 't'} from-accent via-accent/20 to-transparent transition-all duration-500 group-hover/pin:h-24`}></div>
+
+                                        <div className={`absolute ${getLabelStyles(country.labelPos)} transition-all duration-500 z-30 opacity-80 group-hover/pin:opacity-100 group-hover/pin:scale-110`}>
+                                            <div className="flex items-center gap-3 px-4 py-2 bg-[#020817]/95 backdrop-blur-3xl border border-white/10 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] group-hover/pin:border-accent/40">
+                                                <img
+                                                    src={`https://flagcdn.com/w80/${country.id === 'uk' ? 'gb' : country.id}.png`}
+                                                    alt={country.name}
+                                                    className="w-5 h-3 md:w-8 md:h-5 object-cover rounded-sm border border-white/10"
+                                                />
+                                                <span className="text-white text-[10px] md:text-[14px] font-black uppercase tracking-[0.4em] whitespace-nowrap">
                                                     {country.name}
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
 
-            {/* Strategic KPI Section */}
-            <section className="py-24 bg-[#010611] border-y border-white/5 relative z-10">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-                        <div className="p-8 group">
-                            <Globe size={48} className="text-accent mx-auto mb-6 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                            <h3 className="text-3xl font-black text-white mb-3 tracking-tighter uppercase">50+ Hubs</h3>
-                            <p className="text-gray-400 font-light leading-relaxed">Strategic architecture for major global destinations and migration corridors.</p>
-                        </div>
-                        <div className="p-8 group">
-                            <TrendingUp size={48} className="text-accent mx-auto mb-6 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                            <h3 className="text-3xl font-black text-white mb-3 tracking-tighter uppercase">99.8% Success</h3>
-                            <p className="text-gray-400 font-light leading-relaxed">High-precision processing with industry-leading approval performance metrics.</p>
-                        </div>
-                        <div className="p-8 group">
-                            <Users size={48} className="text-accent mx-auto mb-6 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                            <h3 className="text-3xl font-black text-white mb-3 tracking-tighter uppercase">15k Mission</h3>
-                            <p className="text-gray-400 font-light leading-relaxed">Trusted by a global network of professionals, students, and tier-1 investors.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Sector Intelligence Grid */}
-            <section ref={listRef} className="container mx-auto px-4 md:px-6 py-32 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+            {/* Sector Intelligence Grid - Unified Mission Architecture */}
+            <section ref={listRef} className="container mx-auto px-4 md:px-6 py-20 md:py-32 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 gap-8">
                     <div className="max-w-2xl">
                         <div className="text-accent text-[11px] font-black uppercase tracking-[0.6em] mb-4">Database Access</div>
                         <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-8 uppercase tracking-tighter leading-none">Sector <span className="text-gradient">Intel</span> Base</h2>
                         <div className="h-[4px] w-32 bg-accent mb-8"></div>
-                        <p className="text-gray-400 text-xl font-light">Interactive dossier exploration for premium global migration corridors.</p>
+                        <p className="text-gray-400 text-xl font-light">Strategic mission intelligence and interactive dossier exploration for premium global corridors.</p>
                     </div>
-                    <div className="hidden md:block">
-                        <div className="flex items-center gap-4 px-8 py-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
-                            <MousePointer2 className="text-accent" size={20} />
-                            <span className="text-[10px] text-white font-black uppercase tracking-[0.4em]">Initialize Node Interaction</span>
+                </div>
+
+                {/* Integrated Mission KPIs */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-32">
+                    {/* 50+ Hubs */}
+                    <div className="group/stat relative p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.04] hover:border-accent/30 hover:-translate-y-2">
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent transition-opacity duration-500 opacity-0 group-hover/stat:opacity-100 rounded-3xl"></div>
+                        <div className="relative z-10">
+                            <div className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
+                                <span className="text-gradient">50+</span> Hubs
+                            </div>
+                            <div className="h-px w-12 bg-accent/40 mb-6 group-hover/stat:w-full transition-all duration-700"></div>
+                            <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-light">
+                                Strategic architecture for major global destinations and migration corridors.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* 99.8% Success */}
+                    <div className="group/stat relative p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.04] hover:border-accent/30 hover:-translate-y-2">
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent transition-opacity duration-500 opacity-0 group-hover/stat:opacity-100 rounded-3xl"></div>
+                        <div className="relative z-10">
+                            <div className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
+                                <span className="text-gradient">99.8%</span> Success
+                            </div>
+                            <div className="h-px w-12 bg-accent/40 mb-6 group-hover/stat:w-full transition-all duration-700"></div>
+                            <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-light">
+                                High-precision processing with industry-leading approval performance metrics.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* 15k Mission */}
+                    <div className="group/stat relative p-8 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.04] hover:border-accent/30 hover:-translate-y-2">
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent transition-opacity duration-500 opacity-0 group-hover/stat:opacity-100 rounded-3xl"></div>
+                        <div className="relative z-10">
+                            <div className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">
+                                <span className="text-gradient">15k</span> Missions
+                            </div>
+                            <div className="h-px w-12 bg-accent/40 mb-6 group-hover/stat:w-full transition-all duration-700"></div>
+                            <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-light">
+                                Trusted by a global network of professionals, executing high-performance residency.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -348,7 +381,7 @@ const CountriesPage = () => {
                         </button>
 
                         <div className="flex flex-col lg:flex-row min-h-[700px]">
-                            {/* Left Side: Visuals */}
+                            {/* Visual Asset Side */}
                             <div className="lg:w-2/5 relative h-[350px] md:h-[500px] lg:h-auto overflow-hidden group/image border-r border-white/5">
                                 <img
                                     src={selectedCountry.image}
@@ -356,7 +389,6 @@ const CountriesPage = () => {
                                     className="w-full h-full object-cover transition-transform duration-[15000ms] group-hover/image:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1b36] via-[#0b1b36]/40 to-transparent"></div>
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#0b1b36]/60 to-transparent lg:block hidden"></div>
 
                                 <div className="absolute bottom-10 left-10 md:bottom-16 md:left-16 right-10">
                                     <div className="flex items-center gap-3 mb-6">
@@ -365,7 +397,6 @@ const CountriesPage = () => {
                                     </div>
                                     <h3 className="text-5xl md:text-7xl lg:text-9xl font-heading font-black text-white tracking-tighter leading-[0.8] uppercase drop-shadow-2xl select-none mb-8">{selectedCountry.name}</h3>
 
-                                    {/* Quick Info Grid */}
                                     <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-white/10">
                                         <div className="flex items-center gap-3">
                                             <Languages className="text-accent/60" size={18} />
@@ -385,9 +416,8 @@ const CountriesPage = () => {
                                 </div>
                             </div>
 
-                            {/* Right Side: Detailed Intelligence */}
+                            {/* Data Intelligence Side */}
                             <div className="lg:w-3/5 p-8 md:p-12 lg:p-20 space-y-12 bg-gradient-to-br from-[#0b1b36] to-[#010611] overflow-y-auto">
-                                {/* Header Info */}
                                 <div className="space-y-8">
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-4">
@@ -401,9 +431,7 @@ const CountriesPage = () => {
                                     </p>
                                 </div>
 
-                                {/* Deep Dive Content */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    {/* Visa Streams */}
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-3 text-accent mb-2">
                                             <Plane size={20} />
@@ -411,15 +439,14 @@ const CountriesPage = () => {
                                         </div>
                                         <div className="space-y-3">
                                             {selectedCountry.visaTypes.map((type, i) => (
-                                                <div key={i} className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-accent/30 transition-colors group/visa">
-                                                    <ShieldCheck size={14} className="text-accent/40 group-hover/visa:text-accent transition-colors" />
+                                                <div key={i} className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-xl hover:border-accent/30 transition-colors">
+                                                    <ShieldCheck size={14} className="text-accent/40" />
                                                     <span className="text-xs text-gray-200 font-medium">{type}</span>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
 
-                                    {/* Key Benefits */}
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-3 text-accent mb-2">
                                             <Award size={20} />
@@ -427,8 +454,8 @@ const CountriesPage = () => {
                                         </div>
                                         <div className="space-y-3">
                                             {selectedCountry.keyBenefits.map((benefit, i) => (
-                                                <div key={i} className="flex items-center gap-3 px-6 py-3 bg-accent/5 border border-accent/10 rounded-xl hover:border-accent/40 transition-colors group/benefit">
-                                                    <CheckCircle2 size={14} className="text-accent group-hover/benefit:scale-110 transition-transform" />
+                                                <div key={i} className="flex items-center gap-3 px-6 py-3 bg-accent/5 border border-accent/10 rounded-xl hover:border-accent/40 transition-colors">
+                                                    <CheckCircle2 size={14} className="text-accent" />
                                                     <span className="text-xs text-white/90 font-medium">{benefit}</span>
                                                 </div>
                                             ))}
@@ -436,7 +463,6 @@ const CountriesPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Metrics Section */}
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 border-y border-white/5">
                                     <div className="space-y-3 text-center md:text-left">
                                         <div className="flex items-center justify-center md:justify-start gap-2 text-accent/60 mb-1">
@@ -450,10 +476,10 @@ const CountriesPage = () => {
                                             <Clock size={14} />
                                             <span className="text-[10px] font-black uppercase tracking-widest">Avg Timeline</span>
                                         </div>
-                                        <div className="text-3xl md:text-4xl font-black text-white tracking-tighter pt-1 uppercase">{selectedCountry.processingTime}</div>
+                                        <div className="text-3xl md:text-4xl font-black text-white tracking-tighter pt-1 uppercase leading-none">{selectedCountry.processingTime}</div>
                                     </div>
                                     <div className="space-y-3 text-center md:text-left">
-                                        <div className="flex items-center justify-center md:justify-start gap-2 text-accent/60 mb-1">
+                                        <div className="flex items-center justify-center md:justify-start gap-3 text-accent/60 mb-1">
                                             <Users size={14} />
                                             <span className="text-[10px] font-black uppercase tracking-widest">Case Volume</span>
                                         </div>
@@ -461,7 +487,6 @@ const CountriesPage = () => {
                                     </div>
                                 </div>
 
-                                {/* CTA Section */}
                                 <div className="pt-6">
                                     <button
                                         onClick={(e) => handleInquiry(e, selectedCountry)}
@@ -469,7 +494,6 @@ const CountriesPage = () => {
                                     >
                                         Execute Mission Inquiry <ArrowRight size={28} className="group-hover:translate-x-5 transition-transform" />
                                     </button>
-                                    <p className="text-center text-[9px] text-gray-500 uppercase tracking-[0.4em] mt-8 font-bold">Secure Data Handshake Protocol Enabled</p>
                                 </div>
                             </div>
                         </div>
@@ -479,8 +503,8 @@ const CountriesPage = () => {
 
             <style dangerouslySetInnerHTML={{
                 __html: `
-                .interactive-map-container { height: 450px !important; }
-                @media (min-width: 768px) { .interactive-map-container { height: 750px !important; } }
+                .interactive-map-container { height: 500px !important; }
+                @media (min-width: 768px) { .interactive-map-container { height: 850px !important; } }
                 .text-gradient {
                     background: linear-gradient(to right, #ffffff, #d4af37);
                     -webkit-background-clip: text;

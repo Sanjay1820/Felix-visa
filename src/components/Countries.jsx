@@ -12,99 +12,75 @@ import InteractiveGlobe from './InteractiveGlobe';
 const countriesData = [
     {
         id: 'ca', name: 'Canada', lat: 56, lon: -106,
-        description: 'Elite destination for Global Mobility. Renowned for fast-track permanent residency, world-class education systems, and high quality of life.',
+        description: 'Elite destination for Global Mobility. Renowned for fast-track PR and world-class education.',
         image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=2670&auto=format&fit=crop',
         success: '99.2%', sessions: '12,500+',
         tags: ['Express Entry', 'Study Permit', 'Passport Power'],
         visaTypes: ['Express Entry', 'Provincial Nominee', 'Federal Skilled'],
-        processingTime: '6-12 Months',
+        processingTime: '6-12 Mo',
         keyBenefits: ['Free Healthcare', 'Diverse Environment', 'Stable Economy'],
         language: 'English, French',
         climate: 'Seasonal'
     },
     {
         id: 'us', name: 'USA', lat: 37, lon: -95,
-        description: 'The pinnacle of career growth. We specialize in H1-B, EB-5, and student visas for top-tier American universities and tech hubs.',
+        description: 'The pinnacle of career growth. specialized H1-B, EB-5, and student visas for top-tier tech hubs.',
         image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2699&auto=format&fit=crop',
         success: '96.5%', sessions: '18,200+',
         tags: ['H1-B Specialist', 'Silicon Valley', 'Ivy League'],
         visaTypes: ['H1-B (Work)', 'L-1 (Transfer)', 'F-1 (Student)'],
-        processingTime: '12-18 Months',
+        processingTime: '12-18 Mo',
         keyBenefits: ['Tech Innovation', 'Global Network', 'Academic Lead'],
         language: 'English',
         climate: 'Varied'
     },
     {
         id: 'uk', name: 'UK', lat: 55, lon: -3,
-        description: 'Heritage meets opportunity. Expert guidance for Skilled Worker, Innovator Founder, and Graduate Route visa streams.',
+        description: 'Heritage meets opportunity. Expert guidance for Skilled Worker and Graduate Route visa streams.',
         image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2670&auto=format&fit=crop',
         success: '98.1%', sessions: '8,400+',
         tags: ['Skilled Worker', 'Graduate Route', 'Tier 2'],
         visaTypes: ['Skilled Worker', 'Health & Care', 'Graduate Route'],
-        processingTime: '3-8 Weeks',
+        processingTime: '3-8 Wk',
         keyBenefits: ['Business Hub', 'World-Class Edu', 'Rich Heritage'],
         language: 'English',
         climate: 'Temperate'
     },
     {
         id: 'de', name: 'Germany', lat: 51, lon: 10,
-        description: 'Europe\'s industrial powerhouse. specialized support for the Opportunity Card (Chancenkarte) and IT Specialist visas.',
+        description: 'Europe\'s industrial powerhouse. specialized support for the Opportunity Card and IT Specialist visas.',
         image: 'https://images.unsplash.com/photo-1554072675-66db59dba46f?q=80&w=2670&auto=format&fit=crop',
         success: '97.4%', sessions: '5,100+',
         tags: ['Blue Card', 'Job Seeker', 'EU Talent'],
         visaTypes: ['Blue Card (EU)', 'Skilled Worker', 'Job Seeker'],
-        processingTime: '4-12 Weeks',
+        processingTime: '4-12 Wk',
         keyBenefits: ['Industrial Giant', 'EU Mobility', 'Vibrant Culture'],
         language: 'German',
         climate: 'Continental'
     },
     {
         id: 'ae', name: 'UAE', lat: 25, lon: 55,
-        description: 'The future of business residency. Premier Golden Visa processing for investors, entrepreneurs, and exceptional talents.',
+        description: 'The future of business residency. Premier Golden Visa processing for investors and entrepreneurs.',
         image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=2670&auto=format&fit=crop',
         success: '99.8%', sessions: '25,500+',
         tags: ['Golden Visa', 'Tax Haven', 'Luxury PR'],
         visaTypes: ['Golden Visa', 'Green Visa', 'Remote Work'],
-        processingTime: '2-4 Weeks',
+        processingTime: '2-4 Wk',
         keyBenefits: ['Tax-Free Life', 'Ultra Modern', 'Strategic Port'],
         language: 'Arabic, English',
         climate: 'Desert'
     },
     {
         id: 'au', name: 'Australia', lat: -25, lon: 133,
-        description: 'Incredible landscapes and economic stability. Your portal to Subclass 189/190 General Skilled Migration and Student pathways.',
+        description: 'Incredible landscapes and economic stability. Your portal to Subclass 189/190 General Skilled Migration.',
         image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2670&auto=format&fit=crop',
         success: '98.7%', sessions: '9,200+',
         tags: ['PR Pathway', 'Regional Visa', 'Work Holiday'],
         visaTypes: ['Subclass 189/190', 'Student (500)', 'Work (482)'],
-        processingTime: '8-14 Months',
+        processingTime: '8-14 Mo',
         keyBenefits: ['Outdoor Living', 'High Wages', 'Stable Economy'],
         language: 'English',
         climate: 'Subtropical'
-    },
-    {
-        id: 'nz', name: 'New Zealand', lat: -40, lon: 174,
-        description: 'Secure, green, and growing. Fast-track residency for Green List roles in healthcare, construction, and technology.',
-        image: 'https://images.unsplash.com/photo-1507699622177-f888f145af0f?q=80&w=2574&auto=format&fit=crop',
-        success: '97.9%', sessions: '4,800+',
-        tags: ['Green List', 'Accredited employer', 'Family PR'],
-        visaTypes: ['Green List PR', 'Work to Residence', 'Student'],
-        processingTime: '4-10 Months',
-        keyBenefits: ['Nature & Peace', 'Work-Life Balance', 'Safe Haven'],
-        language: 'English, Māori',
-        climate: 'Temperate'
-    },
-    {
-        id: 'pl', name: 'Poland', lat: 52, lon: 19,
-        description: 'Strategic EU Gateway. Expert assistance for Type D Work Visas and Temporary Residence Cards (TRC) in the Schengen area.',
-        image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2670&auto=format&fit=crop',
-        success: '95.6%', sessions: '6,300+',
-        tags: ['Work Visa', 'Schengen TRC', 'EU Bridge'],
-        visaTypes: ['Work Visa Type D', 'Residence Card', 'Business'],
-        processingTime: '4-8 Weeks',
-        keyBenefits: ['EU Gateway', 'Affordable EU', 'Economic Boom'],
-        language: 'Polish',
-        climate: 'Continental'
     }
 ];
 
@@ -140,7 +116,7 @@ const Countries = () => {
                     World <span className="text-gradient">Reach</span>
                 </h2>
                 <p className="text-gray-400 max-w-3xl mx-auto text-xl font-light leading-relaxed">
-                    Select a <span className="text-white font-medium">Country Node</span> on the interactive globe or explore the intelligence base below.
+                    Hover over a <span className="text-white font-medium">Country Node</span> on the interactive globe to preview intelligence or explore the primary base below.
                 </p>
             </div>
 
@@ -162,7 +138,7 @@ const Countries = () => {
                     <div className="h-[2px] w-24 bg-accent mx-auto"></div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {countriesData.map((country, index) => (
                         <div
                             key={index}
