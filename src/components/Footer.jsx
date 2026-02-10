@@ -62,7 +62,7 @@ const Footer = () => {
                     <div>
                         <Link to="/" className="flex flex-col items-start leading-none group mb-10 transition-all duration-300">
                             <span className="text-4xl md:text-5xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors mb-1.5">
-                                FILIX
+                                FELIX
                             </span>
                             <div className="flex items-center gap-2">
                                 <div className="h-[2px] w-6 bg-accent/60 group-hover:w-10 transition-all"></div>
@@ -72,7 +72,7 @@ const Footer = () => {
                             </div>
                         </Link>
                         <p className="text-sm leading-relaxed mb-8 text-gray-400 font-light">
-                            Filix by Sagar is a premier immigration consultancy dedicated to realizing your global dreams. With a 98% success rate, we are your trusted bridge to a new life abroad.
+                            Felix by Sagar is a premier immigration consultancy dedicated to realizing your global dreams. With a 98% success rate, we are your trusted bridge to a new life abroad.
                         </p>
                         <div className="flex space-x-3">
                             {socialLinks.map((social, index) => (
@@ -151,7 +151,7 @@ const Footer = () => {
                                 <div className="mr-4 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-primary transition-colors">
                                     <Mail size={16} />
                                 </div>
-                                <span className="text-gray-400 group-hover:text-white transition-colors">contact@filixbysagar.com</span>
+                                <span className="text-gray-400 group-hover:text-white transition-colors">contact@felixbysagar.com</span>
                             </li>
                         </ul>
                     </div>
@@ -159,7 +159,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-light tracking-wide">
-                    <p>&copy; {new Date().getFullYear()} Filix by Sagar. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Felix by Sagar. All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

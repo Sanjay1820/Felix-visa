@@ -11,7 +11,7 @@ const Cta = () => {
                     <span className="text-gradient">Global Journey?</span>
                 </h2>
                 <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light">
-                    Join thousands of successful clients who have trusted Filix by Sagar for their visa and immigration needs.
+                    Join thousands of successful clients who have trusted Felix by Sagar for their visa and immigration needs.
                 </p>
                 <Link to="/contact" className="px-10 py-4 bg-accent text-primary font-bold text-lg uppercase tracking-wide rounded hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl inline-flex items-center group">
                     Get Free Consultation

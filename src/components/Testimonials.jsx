@@ -9,7 +9,7 @@ const testimonials = [
     {
         name: "Aarav Sharma",
         visa: "Student Visa (Canada)",
-        text: "My dream of studying in Canada became a reality thanks to Filix by Sagar. Their guidance was impeccable from start to finish.",
+        text: "My dream of studying in Canada became a reality thanks to Felix by Sagar. Their guidance was impeccable from start to finish.",
         rating: 5,
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=2670&auto=format&fit=crop",
         country: "Canada"
@@ -25,7 +25,7 @@ const testimonials = [
     {
         name: "Michael Chen",
         visa: "Business Visa (USA)",
-        text: "Efficient, transparent, and result-oriented. Filix made my business expansion to the US smooth and hassle-free.",
+        text: "Efficient, transparent, and result-oriented. Felix made my business expansion to the US smooth and hassle-free.",
         rating: 5,
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop",
         country: "USA"

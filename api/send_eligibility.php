@@ -36,17 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><strong>Category:</strong> $category</p>
             <p><strong>Qualification:</strong> $qualification</p>
             <p style='background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;'><strong>Brief:</strong><br>$brief</p>
-            <div style='text-align: center; color: #555; font-size: 10px; margin-top: 30px;'>FILIX GLOBAL TRANSMISSION</div>
+            <div style='text-align: center; color: #555; font-size: 10px; margin-top: 30px;'>FELIX GLOBAL TRANSMISSION</div>
         </div>
     </body>
     </html>";
 
     // 3. ROBUST HEADERS (Crucial for GoDaddy/Shared Hosting)
     // We use a clean 'From' address that matches common server configs
-    $from_mail = "noreply@" . ($_SERVER['SERVER_NAME'] ?? 'filixbysagar.com');
+    $from_mail = "noreply@" . ($_SERVER['SERVER_NAME'] ?? 'felixbysagar.com');
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: Filix System <$from_mail>" . "\r\n";
+    $headers .= "From: Felix System <$from_mail>" . "\r\n";
     $headers .= "Reply-To: $email" . "\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
 

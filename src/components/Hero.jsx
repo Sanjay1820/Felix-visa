@@ -102,7 +102,7 @@ const Hero = () => {
                     </h1>
 
                     <p ref={subtitleRef} className="text-lg md:text-2xl text-gray-300 mb-12 max-w-xl font-light leading-relaxed">
-                        Navigate complex borders with Filix by Sagar. Expertly engineered immigration solutions for <span className="text-white font-medium border-b border-accent/30 pb-1">Study, Work, and Permanent Residency</span>.
+                        Navigate complex borders with Felix by Sagar. Expertly engineered immigration solutions for <span className="text-white font-medium border-b border-accent/30 pb-1">Study, Work, and Permanent Residency</span>.
                     </p>
 
                     <div ref={ctaRef} className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">

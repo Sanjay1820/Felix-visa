@@ -113,7 +113,7 @@ const About = () => {
             {/* Header */}
             <section className="container mx-auto px-4 md:px-6 py-12 text-center">
                 <div ref={headerRef}>
-                    <span className="text-accent text-sm uppercase tracking-widest font-bold mb-4 block">About Filix</span>
+                    <span className="text-accent text-sm uppercase tracking-widest font-bold mb-4 block">About Felix</span>
                     <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
                         Crafting Your <span className="text-gradient">Global Future</span>
                     </h1>
@@ -135,7 +135,7 @@ const About = () => {
                         <div className="md:w-1/2">
                             <h2 className="text-3xl font-heading font-bold text-white mb-6">Our Story</h2>
                             <p className="text-gray-300 mb-6 font-light leading-relaxed">
-                                Founded with a vision to simplify global mobility, Filix by Sagar has grown from a boutique consultancy to an international leader. We align your dreams with reality through expert guidance and transparent processes.
+                                Founded with a vision to simplify global mobility, Felix by Sagar has grown from a boutique consultancy to an international leader. We align your dreams with reality through expert guidance and transparent processes.
                             </p>
                             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                                 {stats.map((s, i) => (

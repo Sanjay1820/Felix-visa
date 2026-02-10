@@ -31,7 +31,7 @@ const Navbar = () => {
                 {/* Logo - Synchronized Mission Branding */}
                 <NavLink to="/" className="flex flex-col items-start leading-none group transition-all duration-300">
                     <span className="text-3xl md:text-4xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors mb-0.5">
-                        FILIX
+                        FELIX
                     </span>
                     <div className="flex items-center gap-1.5 translate-x-[1px]">
                         <div className="h-[1px] w-4 bg-accent/60 group-hover:w-6 transition-all"></div>

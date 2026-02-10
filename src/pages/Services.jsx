@@ -98,7 +98,7 @@ const Services = () => {
                         Comprehensive <span className="text-gradient">Visa Solutions</span>
                     </h1>
                     <p className="text-gray-400 max-w-3xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-                        Whether you're looking to study, work, travel, or settle abroad, Filix by Sagar offers end-to-end visa and immigration services tailored to your needs.
+                        Whether you're looking to study, work, travel, or settle abroad, Felix by Sagar offers end-to-end visa and immigration services tailored to your needs.
                     </p>
                 </div>
             </section>

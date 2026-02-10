@@ -55,12 +55,12 @@ const WhyChooseUs = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Content */}
                     <div ref={contentRef} className="lg:w-1/2">
-                        <span className="text-accent text-sm uppercase tracking-widest font-bold mb-2 block">Why Choose Filix</span>
+                        <span className="text-accent text-sm uppercase tracking-widest font-bold mb-2 block">Why Choose Felix</span>
                         <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8 leading-tight">
                             Your Dreams, Our <span className="text-gradient">Commitment.</span>
                         </h2>
                         <p className="text-gray-400 mb-10 text-lg leading-relaxed font-light">
-                            Choosing the right partner for your migration journey is crucial. At Filix by Sagar, we combine expertise with empathy to deliver results that change lives.
+                            Choosing the right partner for your migration journey is crucial. At Felix by Sagar, we combine expertise with empathy to deliver results that change lives.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

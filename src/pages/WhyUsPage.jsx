@@ -118,7 +118,7 @@ const WhyUsPage = () => {
             <div className="bg-shape absolute bottom-1/4 -right-12 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <section ref={heroRef} className="container mx-auto px-4 md:px-6 text-center mb-24 relative z-10">
-                <span className="text-accent text-sm uppercase tracking-widest font-bold mb-4 block">The Filix Standard</span>
+                <span className="text-accent text-sm uppercase tracking-widest font-bold mb-4 block">The Felix Standard</span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6">
                     Engineering Your <span className="text-gradient">Global Future</span>
                 </h1>

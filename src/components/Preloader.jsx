@@ -4,6 +4,7 @@ import { Plane, ShieldCheck, Globe } from 'lucide-react';
 
 const Preloader = ({ onComplete }) => {
     const containerRef = useRef(null);
+    const globeRef = useRef(null);
     const brandRef = useRef(null);
     const planeRef = useRef(null);
     const progressRef = useRef(null);
@@ -19,18 +20,25 @@ const Preloader = ({ onComplete }) => {
         // Initial state
         gsap.set(containerRef.current, { autoAlpha: 1 });
         gsap.set(brandRef.current, { opacity: 0, scale: 0.9, filter: 'blur(10px)' });
+        gsap.set(globeRef.current, { scale: 0.5, opacity: 0 });
         gsap.set(planeRef.current, { x: -50, opacity: 0 });
         gsap.set(progressRef.current, { scaleX: 0, transformOrigin: 'left center' });
         gsap.set(statusRef.current, { opacity: 0, y: 10 });
 
         // Animation sequence
-        tl.to(brandRef.current, {
-            opacity: 1,
+        tl.to(globeRef.current, {
             scale: 1,
-            filter: 'blur(0px)',
-            duration: 1.2,
+            opacity: 0.4,
+            duration: 1.5,
             ease: "expo.out"
         })
+            .to(brandRef.current, {
+                opacity: 1,
+                scale: 1,
+                filter: 'blur(0px)',
+                duration: 1.2,
+                ease: "expo.out"
+            })
             .to(planeRef.current, {
                 x: 0,
                 opacity: 1,
@@ -83,7 +91,7 @@ const Preloader = ({ onComplete }) => {
                 {/* Proper Brand Identity */}
                 <div ref={brandRef} className="text-center mb-16">
                     <h1 className="text-6xl md:text-8xl font-heading font-black text-white tracking-tighter leading-none mb-3">
-                        Filix
+                        Felix
                     </h1>
                     <div className="flex items-center justify-center gap-4">
                         <div className="h-[2px] w-12 md:w-20 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>

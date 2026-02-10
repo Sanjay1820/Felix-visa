@@ -3,9 +3,9 @@
 header('Content-Type: application/json');
 
 $to = 'sanjaythakor4973@gmail.com';
-$subject = "Filix System Diagnostic";
+$subject = "Felix System Diagnostic";
 $message = "This is a diagnostic test to verify if the server's PHP mail() function is enabled and working.";
-$headers = "From: system-diagnostic@filixbysagar.com";
+$headers = "From: system-diagnostic@felixbysagar.com";
 
 $mail_enabled = function_exists('mail');
 $send_status = false;

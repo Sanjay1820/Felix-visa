@@ -31,7 +31,7 @@ const TitleUpdater = () => {
             title = type ? `${type.charAt(0).toUpperCase() + type.slice(1)} Visa` : 'Visa Service';
         }
 
-        document.title = title ? `${title} | Filix by Sagar` : 'Filix by Sagar | Global Visa & Immigration';
+        document.title = title ? `${title} | Felix by Sagar` : 'Felix by Sagar | Global Visa & Immigration';
     }, [location]);
 
     return null;

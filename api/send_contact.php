@@ -36,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </body>
     </html>";
 
-    $from_mail = "noreply@" . ($_SERVER['SERVER_NAME'] ?? 'filixbysagar.com');
+    $from_mail = "noreply@" . ($_SERVER['SERVER_NAME'] ?? 'felixbysagar.com');
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: Filix Contact <$from_mail>" . "\r\n";
+    $headers .= "From: Felix Contact <$from_mail>" . "\r\n";
     $headers .= "Reply-To: $email" . "\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
