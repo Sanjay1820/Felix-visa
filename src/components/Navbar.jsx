@@ -28,15 +28,15 @@ const Navbar = () => {
     return (
         <nav className={`fixed w-full z-40 transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                {/* Logo - Synchronized Branding */}
-                <NavLink to="/" className="flex flex-col items-start leading-none group">
-                    <span className="text-2xl md:text-3xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors">
+                {/* Logo - Synchronized Mission Branding */}
+                <NavLink to="/" className="flex flex-col items-start leading-none group transition-all duration-300">
+                    <span className="text-3xl md:text-4xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors mb-0.5">
                         FILIX
                     </span>
-                    <div className="flex items-center gap-1.5 mt-0.5">
-                        <div className="h-[1px] w-3 bg-accent/60"></div>
-                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-accent">
-                            BY SAGAR
+                    <div className="flex items-center gap-1.5 translate-x-[1px]">
+                        <div className="h-[1px] w-4 bg-accent/60 group-hover:w-6 transition-all"></div>
+                        <span className="text-[10px] md:text-[11px] font-light text-accent/90 tracking-[0.4em] uppercase">
+                            by Sagar
                         </span>
                     </div>
                 </NavLink>

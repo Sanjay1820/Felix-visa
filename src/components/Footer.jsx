@@ -60,14 +60,14 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Column */}
                     <div>
-                        <Link to="/" className="flex flex-col items-start leading-none group mb-8">
-                            <span className="text-3xl md:text-4xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors">
+                        <Link to="/" className="flex flex-col items-start leading-none group mb-10 transition-all duration-300">
+                            <span className="text-4xl md:text-5xl font-heading font-black text-white tracking-tighter group-hover:text-accent transition-colors mb-1.5">
                                 FILIX
                             </span>
-                            <div className="flex items-center gap-2 mt-1">
-                                <div className="h-[1px] w-4 bg-accent/60"></div>
-                                <span className="text-[11px] md:text-[12px] font-black uppercase tracking-[0.4em] text-accent">
-                                    BY SAGAR
+                            <div className="flex items-center gap-2">
+                                <div className="h-[2px] w-6 bg-accent/60 group-hover:w-10 transition-all"></div>
+                                <span className="text-[12px] md:text-[14px] font-light text-accent/90 tracking-[0.4em] uppercase">
+                                    by Sagar
                                 </span>
                             </div>
                         </Link>
